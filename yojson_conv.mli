@@ -39,7 +39,7 @@ val yojson_of_int64 : int64 -> Yojson.Safe.t
 
 (** [yojson_of_nativeint n] converts the value [n] of type [nativeint] to an
     Yojson. *)
-val yojson_of_nativeint : nativeint -> Yojson.Safe.t
+(* val yojson_of_nativeint : nativeint -> Yojson.Safe.t *)
 
 (** [yojson_of_ref conv r] converts the value [r] of type ['a ref] to
     an Yojson.  Uses [conv] to convert values of type ['a] to an
@@ -159,7 +159,7 @@ val int64_of_yojson : Yojson.Safe.t -> int64
 
 (** [nativeint_of_yojson yojson] converts Yojson [yojson] to a value
     of type [nativeint]. *)
-val nativeint_of_yojson : Yojson.Safe.t -> nativeint
+(* val nativeint_of_yojson : Yojson.Safe.t -> nativeint *)
 
 (** [ref_of_yojson conv yojson] converts Yojson [yojson] to a value
     of type ['a ref] using conversion function [conv], which converts
@@ -236,7 +236,7 @@ module Primitives : sig
   val yojson_of_float : float -> Yojson.Safe.t
   val yojson_of_int32 : int32 -> Yojson.Safe.t
   val yojson_of_int64 : int64 -> Yojson.Safe.t
-  val yojson_of_nativeint : nativeint -> Yojson.Safe.t
+  (* val yojson_of_nativeint : nativeint -> Yojson.Safe.t *)
   val yojson_of_ref : ('a -> Yojson.Safe.t) -> 'a ref -> Yojson.Safe.t
   val yojson_of_lazy_t : ('a -> Yojson.Safe.t) -> 'a lazy_t -> Yojson.Safe.t
   val yojson_of_option : ('a -> Yojson.Safe.t) -> 'a option -> Yojson.Safe.t
@@ -258,7 +258,7 @@ module Primitives : sig
   val float_of_yojson : Yojson.Safe.t -> float
   val int32_of_yojson : Yojson.Safe.t -> int32
   val int64_of_yojson : Yojson.Safe.t -> int64
-  val nativeint_of_yojson : Yojson.Safe.t -> nativeint
+  (* val nativeint_of_yojson : Yojson.Safe.t -> nativeint *)
   val ref_of_yojson : (Yojson.Safe.t -> 'a) -> Yojson.Safe.t -> 'a ref
   val lazy_t_of_yojson : (Yojson.Safe.t -> 'a) -> Yojson.Safe.t -> 'a lazy_t
   val option_of_yojson : (Yojson.Safe.t -> 'a) -> Yojson.Safe.t -> 'a option

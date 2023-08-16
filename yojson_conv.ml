@@ -13,7 +13,7 @@ let yojson_of_int n : t = `Int n
 let yojson_of_float n : t = `Float n
 let yojson_of_int32 (n : Int32.t) : t = `Intlit (Int32.to_string n)
 let yojson_of_int64 (n : Int64.t) : t = `Intlit (Int64.to_string n)
-let yojson_of_nativeint n : t = `Intlit (Nativeint.to_string n)
+(* let yojson_of_nativeint n : t = `Intlit (Nativeint.to_string n) *)
 let yojson_of_ref yojson_of__a rf = yojson_of__a !rf
 let yojson_of_lazy_t yojson_of__a lv = yojson_of__a (Lazy.force lv)
 
@@ -117,12 +117,12 @@ let int64_of_yojson yojson =
   | _ -> of_yojson_error "int64_of_yojson: integer needed" yojson
 ;;
 
-let nativeint_of_yojson yojson =
-  match yojson with
-  | `Intlit str -> Nativeint.of_string str
-  | `Int v -> Nativeint.of_int v
-  | _ -> of_yojson_error "nativeint_of_yojson: integer needed" yojson
-;;
+(* let nativeint_of_yojson yojson = *)
+(*   match yojson with *)
+(*   | `Intlit str -> Nativeint.of_string str *)
+(*   | `Int v -> Nativeint.of_int v *)
+(*   | _ -> of_yojson_error "nativeint_of_yojson: integer needed" yojson *)
+(* ;; *)
 
 let ref_of_yojson a__of_yojson yojson = ref (a__of_yojson yojson)
 let lazy_t_of_yojson a__of_yojson yojson = Lazy.from_val (a__of_yojson yojson)
@@ -215,8 +215,8 @@ module Primitives = struct
   let int64_of_yojson = int64_of_yojson
   let yojson_of_list = yojson_of_list
   let list_of_yojson = list_of_yojson
-  let yojson_of_nativeint = yojson_of_nativeint
-  let nativeint_of_yojson = nativeint_of_yojson
+  (* let yojson_of_nativeint = yojson_of_nativeint *)
+  (* let nativeint_of_yojson = nativeint_of_yojson *)
   let yojson_of_option = yojson_of_option
   let option_of_yojson = option_of_yojson
   let yojson_of_ref = yojson_of_ref
